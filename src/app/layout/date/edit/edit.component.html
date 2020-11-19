@@ -1,0 +1,20 @@
+<div>
+    <app-page-header [heading]="'Editar Data'" [icon]="'fa-open'"></app-page-header>
+    <form role="form">
+        <div class="form-group">
+            <fieldset class="form-group">
+                <label>Selecione o dia:</label>
+                <br>
+                <input type="date" name="data" formControlName="dateSelected" class="datepicker" />
+            </fieldset>
+        </div>
+        <fieldset class="form-group">
+            <label>Selecione o horário:</label>
+            <select class="form-control" (change)="hours.selected = $event.target.value">
+                <option *ngFor="let hour of hours" [value]="hour.key" [selected]="hour.selected">{{hour.startTime}}
+                    até {{hour.endTime}}</option>
+            </select>
+        </fieldset>
+        <button class="btn btn-success" type="submit" (click)="saveUpdate()">Salvar</button>
+    </form>
+</div>

@@ -1,0 +1,28 @@
+<div>
+    <app-page-header [heading]="''" [icon]="'fa-bar-chart-o'"></app-page-header>
+    <br>
+    <div class="row">
+        <div class="col col-sm-6">
+            <div class="card mb-3">
+                <div class="card-header">
+                    Usuarios Cadastrados:
+                </div>
+                <div class="card-body">
+                    <table class="table">
+                        <thead>
+                        <tr>
+                            <th>Nome:</th>
+                        </tr>
+                        </thead>
+                        <tbody>
+                        <tr *ngFor="let user of listUsers">
+                            <td>{{user.name}}</td>
+                            <td>{{user.acessLevel == 'adm' ? 'Administrador' : 'Usuario'}}</td>
+                        </tr>
+                        </tbody>
+                    </table>
+                </div>
+            </div>
+        </div>
+    </div>
+</div>

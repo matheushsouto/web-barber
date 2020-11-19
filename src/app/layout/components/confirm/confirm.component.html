@@ -1,0 +1,18 @@
+<ng-template #content let-modal>
+    <div class="modal-header">
+        <h4 class="modal-title">{{title}}</h4>
+        <button type="button" class="close" aria-label="Close" (click)="confirm(false)">
+            <span aria-hidden="true">&times;</span>
+        </button>
+    </div>
+    <div class="modal-body">
+        <p>{{bodyMessage}}</p>
+    </div>
+    <div class="modal-footer">
+        <button type="button" class="btn btn-danger btn-shooting" (click)="confirm(false)">Cancelar</button>
+        <button type="button" class="btn btn-success btn-shooting btn-responsive" (click)="confirm(true)">Ok</button>
+    </div>
+</ng-template>
+
+
+<button class="btn {{classBtn}}" (click)="open(content)" title = "{{titleBtn}}"> <i class="fa {{classIcon}}"> </i> {{nameBtn}}</button>

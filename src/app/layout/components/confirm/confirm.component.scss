@@ -1,0 +1,61 @@
+.buttonMargin{
+    margin: 2px;
+}
+.marginRight{
+
+    margin-right: 6px;
+}
+.marginRight-2{
+
+    margin-right: 3px;
+}
+.buttonAlingh {
+    float: right;
+}
+.buttonTopMargin{
+    font-weight: bold;
+    margin-left: 8px;
+    margin-bottom: 10px;
+}
+.btn-green{
+    background-color: darkgreen;
+}
+.btn-green:hover{
+    background-color: rgb(4, 78, 4);
+}
+.oranger{
+    background-color: rgb(236, 108, 3);
+}
+.oranger:hover{
+    background-color: rgb(255, 115, 0);
+}
+.buttonMargin-2{
+    margin: 0 2px;
+    width: 75px;
+    height: 38px;
+}
+.btn-danger{
+    font-size: 1rem;
+}
+@media screen and (max-width:767px) {
+    .btnEditTipoDoc{
+        width: 100% !important;
+        margin: 0;
+        padding: 8px 0 !important;
+    }
+    .btnLotes{
+        width: 100% !important;
+    }
+    .modal-footer{
+        display: block !important;
+    }
+    .btn-shooting {
+        width:100% !important;
+    }
+    .btn{
+        margin-left: 0px !important;
+    }
+    .btn-responsive{
+        margin-top: 10px !important;
+    }
+}

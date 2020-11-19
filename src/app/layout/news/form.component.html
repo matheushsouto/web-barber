@@ -1,0 +1,56 @@
+<div>
+    <app-page-header [heading]="'Cadastro de Noticias'" [icon]="'fa-open'"></app-page-header>
+
+    <div class="row">
+        <div class="col-lg-12">
+            <form role="form" [formGroup]="newsForm">
+                <fieldset class="form-group">
+                    <label>Titulo:</label>
+                    <input class="form-control" placeholder="Titulo" type="input" formControlName="title"/>
+                </fieldset>
+                <fieldset class="form-group">
+                    <label>Conteudo:</label>
+                    <textarea class="form-control" placeholder="Conteudo" formControlName="body"></textarea>
+
+                </fieldset>
+                <fieldset class="form-group">
+                    <label>Link Imagem:</label>
+                    <input class="form-control" placeholder="Link" type="link" formControlName="link"/>
+                </fieldset>
+                <button class="btn btn-success" type="submit" [disabled]="!newsForm.valid" (click)="saveNews()">
+                    Salvar
+                </button>
+            </form>
+            <div class="card-body table-responsive">
+                <table class="table">
+                    <thead>
+                    <tr>
+                        <th>#</th>
+                        <th>Titulo:</th>
+                        <th>Conteudo:</th>
+                        <th>Link Imagem:</th>
+                        <th>Ações:</th>
+                    </tr>
+                    </thead>
+                    <tbody>
+                    <tr *ngFor="let noticie of news">
+                        <th scope="row"></th>
+                        <td>{{noticie.title}}</td>
+                        <td>{{noticie.body}}</td>
+                        <td><img src="{{noticie.link}}" height="50px" width="50px"></td>
+                        <td>
+                            <button class="btn btn-warning" type="reset" (click)="editNews(noticie.key)">Editar
+                            </button>
+                            <app-confirm
+                                [classBtn]="'btn-danger btn-sm buttonMargin-2'"
+                                [bodyMessage]="'Deseja realmente deletar a noticia?'"
+                                [title]="'Remover noticia'"
+                                [id]="noticie.key" (responseConfirm)="deleteNews($event)"></app-confirm>
+                        </td>
+                    </tr>
+                    </tbody>
+                </table>
+            </div>
+        </div>
+    </div>
+</div>

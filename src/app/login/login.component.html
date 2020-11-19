@@ -1,0 +1,35 @@
+<div class="login-page">
+    <div class="row justify-content-md-center">
+        <div class="col-md-4">
+<!--            <img class="user-avatar" src="assets/images/logo.png" width="150px"/>-->
+            <br><br><br><br> <br><br><br><br>
+            <h1>Barber Shop</h1>
+            <form role="form">
+                <div class="form-content">
+                    <div class="form-group">
+                        <input
+                            [placeholder]="'Email' | translate"
+                            class="form-control input-underline input-lg"
+                            type="text" [(ngModel)]="email" name="email"
+                        />
+                    </div>
+
+                    <div class="form-group">
+                        <input
+                            [placeholder]="'Senha' | translate"
+                            class="form-control input-underline input-lg"
+                            type="password" [(ngModel)]="password" name="password"
+                        />
+                    </div>
+                </div>
+                <a (click)="onLoggedin()" class="btn rounded-btn">{{
+                    'Entrar' | translate
+                    }}</a>
+            </form>
+            <br>
+            <ngb-alert (close)="closeAlert(alert)" *ngFor="let alert of alerts" [type]="alert.type">{{
+                alert.message
+                }}</ngb-alert>
+        </div>
+    </div>
+</div>

@@ -1,0 +1,59 @@
+<nav [ngClass]="{ sidebarPushRight: isActive, collapsed: collapsed }" class="sidebar" *ngIf="status">
+    <div class="list-group">
+        <a [routerLinkActive]="['router-link-active']" class="list-group-item" routerLink="/dashboard"
+           *ngIf="permission == 'adm'">
+            <i class="fa fa-fw fa-home"></i>&nbsp;
+            <span>{{ 'Início ' | translate }}</span>
+        </a>
+        <a [routerLinkActive]="['router-link-active']" [routerLink]="['/agendamentos']" class="list-group-item"
+           *ngIf="permission == 'adm'">
+            <i class="fa fa-fw fa-clipboard"></i>&nbsp;
+            <span>{{ 'Agendamentos' | translate }}</span>
+        </a>
+        <a [routerLinkActive]="['router-link-active']" [routerLink]="['/horarios']" class="list-group-item"
+           *ngIf="permission == 'adm'">
+            <i class="fa fa-fw fa-clock-o"></i>&nbsp;
+            <span>{{ 'Horários' | translate }}</span>
+        </a>
+        <a [routerLinkActive]="['router-link-active']" [routerLink]="['/datas']" class="list-group-item"
+           *ngIf="permission == 'adm'">
+            <i class="fa fa-fw fa-calendar"></i>&nbsp;
+            <span>{{ 'Datas' | translate }}</span>
+        </a>
+        <a [routerLinkActive]="['router-link-active']" [routerLink]="['/noticias']" class="list-group-item"
+           *ngIf="permission == 'adm'">
+            <i class="fa fa-fw fa-rss-square"></i>&nbsp;
+            <span>{{ 'Noticias' | translate }}</span>
+        </a>
+        <a [routerLinkActive]="['router-link-active']" [routerLink]="['/app']" class="list-group-item"
+           *ngIf="permission == 'adm'">
+            <i class="fa fa-fw fa-tablet"></i>&nbsp;
+            <span>{{ 'Aplicativo' | translate }}</span>
+        </a>
+        <a [routerLinkActive]="['router-link-active']" [routerLink]="['/usuarios']" class="list-group-item"
+           *ngIf="permission == 'adm'">
+            <i class="fa fa-fw fa-users"></i>&nbsp;
+            <span>{{ 'Usuarios' | translate }}</span>
+        </a>
+    </div>
+    <div class="header-fields">
+        <div class="nested-menu">
+            <a (click)="addExpandClass('profile')" class="list-group-item">
+                <span><i class="fa fa-user"></i>  {{ name | translate }}</span>
+            </a>
+            <li [class.expand]="showMenu === 'profile'" class="nested">
+                <ul class="submenu">
+                    <li>
+                        <a (click)="onLoggedout()" [routerLink]="['/login']">
+                            <span><i class="fa fa-fw fa-power-off"></i> {{ 'Sair' | translate }}</span>
+                        </a>
+                    </li>
+                </ul>
+            </li>
+        </div>
+    </div>
+    <div (click)="toggleCollapsed()" [ngClass]="{ collapsed: collapsed }" class="toggle-button">
+        <i class="fa fa-fw fa-angle-double-{{ collapsed ? 'right' : 'left' }}"></i>&nbsp;
+        <span>{{ 'Esconder' | translate }}</span>
+    </div>
+</nav>

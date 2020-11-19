@@ -1,0 +1,25 @@
+<div>
+    <app-page-header [heading]="'Editar Usuario'" [icon]="'fa-open'"></app-page-header>
+    <form role="form" [formGroup]="form">
+        <fieldset class="form-group">
+            <label>Nome:</label>
+            <input class="form-control" formControlName="name"/>
+        </fieldset>
+        <fieldset class="form-group">
+            <label>Email:</label>
+            <input class="form-control" formControlName="email" disabled/>
+        </fieldset>
+        <div class="form-group">
+            <label>Nivel de Acesso</label>
+            <select class="form-control" formControlName="acessLevel"
+                    name="nameClientSelected">
+                <option value="" defaultValue disabled>Selecione uma opção:</option>
+                <option value="adm">Administrador</option>
+                <option value="user" selected>Usuário</option>
+            </select>
+        </div>
+        <button class="btn btn-success" type="submit" [disabled]="!form.valid" (click)="saveUpdate()">
+            Salvar
+        </button>
+    </form>
+</div>
